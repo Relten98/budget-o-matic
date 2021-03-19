@@ -1,10 +1,16 @@
+// Dependencies
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-const PORT = 3000;
+// Very important.
+let birds = 666;
 
+// Our port information
+const PORT = 5000;
+
+// Calls in express
 const app = express();
 
 app.use(logger("dev"));
@@ -20,9 +26,10 @@ mongoose.connect("mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-// routes
+// Routes
 app.use(require("./routes/api.js"));
 
+// Initializes the server
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  console.log(`${birds} birds are listening, and this App is running on port ${PORT}.`);
 });
