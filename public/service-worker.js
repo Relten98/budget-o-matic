@@ -12,16 +12,18 @@ const FILES_TO_CACHE = [
     `/icons/icon-512x512.png`
 ];
 
+// The static cache and runtime cache... duh.
 const STATIC_CACHE = `static-cache-v1`;
+
 const RUNTIME_CACHE = `runtime-cache`;
 
 
-// install
+// Install
 self.addEventListener("install", function (evt) {
   evt.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      console.log("Your files were pre-cached successfully!");
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(STATIC_CACHE).then(cache => {
+      cache.addAll(FILES_TO_CACHE);
+      return console.log("Your files were pre-cached successfully!");
     })
   );
 
