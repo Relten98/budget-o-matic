@@ -1,36 +1,40 @@
-'use strict'
+"use strict";
 
-console.log('DB has been located!');
+const pendingObjectStoreName = `pending`;
 
-const pendingObjectstorage = `pending`;
+// create a new db request for a "budget" database.
+const request = indexedDB.open(`budget`, 2);
 
-const handoff = indexedDB.open(`budget`, 2);
+request.onupgradeneeded = event => {
+    const db = request.result;
 
-handoff.onupgradeneeded = event => {
-    let database = handoff.result;
+    // create object store called "pending" and set autoIncrement to true
+    // const db = event.target.result;
+    console.log(event);
 
-    if (!database.objectStoreNames.contains(pendingObjectstorage)) {
-        database.createObjectstore(pendingObjectstorage, { autoIncrement: true });
+    if (!db.objectStoreNames.contains(pendingObjectStoreName)) {
+        db.createObjectStore(pendingObjectStoreName, { autoIncrement: true });
     }
 };
-handoff.onsuccess = event => {
-    console.log(`Successful ${event.type}!`);
 
+request.onsuccess = event => {
+    console.log(`Success! ${event.type}`);
+    // check if app is online before reading from db
     if (navigator.onLine) {
         checkDatabase();
     }
-}
+};
 
-handoff.onerror = event => console.error(event);
+request.onerror = event => console.error(event);
 
 function checkDatabase() {
-    const db = handoff.result;
+    const db = request.result;
 
     // open a transaction on your pending db
-    let transaction = db.transaction([pendingObjectstorage], `readwrite`);
+    let transaction = db.transaction([pendingObjectStoreName], `readwrite`);
 
     // access your pending object store
-    let store = transaction.objectStore(pendingObjectstorage);
+    let store = transaction.objectStore(pendingObjectStoreName);
 
     // get all records from store and set to a variable
     const getAll = store.getAll();
@@ -48,10 +52,10 @@ function checkDatabase() {
                 .then(response => response.json())
                 .then(() => {
                     // if successful, open a transaction on your pending db
-                    transaction = db.transaction([pendingObjectstorage], `readwrite`);
+                    transaction = db.transaction([pendingObjectStoreName], `readwrite`);
 
                     // access your pending object store
-                    store = transaction.objectStore(pendingObjectstorage);
+                    store = transaction.objectStore(pendingObjectStoreName);
 
                     // clear all items in your store
                     store.clear();
@@ -62,15 +66,15 @@ function checkDatabase() {
 
 // eslint-disable-next-line no-unused-vars
 function saveRecord(record) {
-    let db = handoff.result;
+    const db = request.result;
 
-    // Creates a transaction on the pending db with readwrite access
-    let transaction = db.transaction([pendingObjectstorage], `readwrite`);
+    // create a transaction on the pending db with readwrite access
+    const transaction = db.transaction([pendingObjectStoreName], `readwrite`);
 
-    // Access the object store
-    let store = transaction.objectStore(pendingObjectstorage);
+    // access your pending object store
+    const store = transaction.objectStore(pendingObjectStoreName);
 
-    // Add record to your store with add method.
+    // add record to your store with add method.
     store.add(record);
 }
 
