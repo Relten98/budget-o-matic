@@ -1,6 +1,7 @@
-console.log("Service worker has been located.");
+'use strict'
 
-// Caches files
+console.log('This is your service-worker.js file!');
+
 const FILES_TO_CACHE = [
     `/db.js`,
     `/index.html`,
