@@ -1,3 +1,4 @@
+// Dependancies
 let transactions = [];
 let myChart;
 
@@ -14,6 +15,7 @@ fetch("/api/transaction")
     populateChart();
   });
 
+  // Shows the total money spent.
 function populateTotal() {
   // reduce transaction amounts to a single total value
   let total = transactions.reduce((total, t) => {
