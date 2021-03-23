@@ -7,6 +7,7 @@ colorstorage {
 }
 
 nav {
+    text-align: center;
     background-color: #221945;
     color: #E6EDE6;
 }
@@ -52,8 +53,9 @@ button {
 background: #F1AF48;
 color: #221945;
 }
+
 button:hover {
-background: #d39126;
+background: #b98025;
 
 }
 
