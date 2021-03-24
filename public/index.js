@@ -1,18 +1,13 @@
 let transactions = [];
 let myChart;
 
-fetch(`/api/transaction`)
-    .then(response => response.json())
-    .then(data => {
-        // save db data on global variable
-        transactions = data;
-        populateTotal();
-        populateTable();
-        populateChart();
-    });
+function showChart() {
+    $('.collapse').collapse()
+}
 
 function populateTotal() {
-    // reduce transaction amounts to a single total value
+    
+    // Reduce transaction amounts to a single total value
     const total = transactions.reduce(
         (currTotal, t) => currTotal + parseInt(t.value),
         0
@@ -91,7 +86,7 @@ function sendTransaction(isAdding) {
         errorEl.textContent = ``;
     }
 
-    // create record
+    // Creates a record
     const transaction = {
         name: nameEl.value,
         value: amountEl.value,
@@ -102,6 +97,18 @@ function sendTransaction(isAdding) {
     if (!isAdding) {
         transaction.value *= -1;
     }
+
+    fetch(`/api/transaction`)
+    .then(response => response.json())
+    .then(data => {
+        // save db data on global variable
+        transactions = data;
+        showChart();
+        populateTotal();
+        populateTable();
+        populateChart();
+    });
+
 
     // add to beginning of current array of data
     transactions.unshift(transaction);

@@ -1,23 +1,20 @@
-const pendingObjectStoreName = `pending`;
-
-// create a new db request for a "budget" database.
+// Create a new db request for a "budget" database.
 const request = indexedDB.open(`budget`, 2);
+
+// This is what shall use to store out shiznit
+const ObjectStoreName = `pending`;
+
 
 request.onupgradeneeded = event => {
     const db = request.result;
 
-    // create object store called "pending" and set autoIncrement to true
-    // const db = event.target.result;
-    console.log(event);
-
-    if (!db.objectStoreNames.contains(pendingObjectStoreName)) {
-        db.createObjectStore(pendingObjectStoreName, { autoIncrement: true });
+    if (!db.objectStoreNames.contains(ObjectStoreName)) {
+        db.createObjectStore(ObjectStoreName, { autoIncrement: true });
     }
 };
 
 request.onsuccess = event => {
-    console.log(`Success! ${event.type}`);
-    // check if app is online before reading from db
+    // Will read from the DB if the website is not online, like a gigabrain should.
     if (navigator.onLine) {
         checkDatabase();
     }
@@ -29,10 +26,10 @@ function checkDatabase() {
     const db = request.result;
 
     // open a transaction on your pending db
-    let transaction = db.transaction([pendingObjectStoreName], `readwrite`);
+    let transaction = db.transaction([ObjectStoreName], `readwrite`);
 
     // access your pending object store
-    let store = transaction.objectStore(pendingObjectStoreName);
+    let store = transaction.objectStore(ObjectStoreName);
 
     // get all records from store and set to a variable
     const getAll = store.getAll();
@@ -50,10 +47,10 @@ function checkDatabase() {
                 .then(response => response.json())
                 .then(() => {
                     // if successful, open a transaction on your pending db
-                    transaction = db.transaction([pendingObjectStoreName], `readwrite`);
+                    transaction = db.transaction([ObjectStoreName], `readwrite`);
 
                     // access your pending object store
-                    store = transaction.objectStore(pendingObjectStoreName);
+                    store = transaction.objectStore(ObjectStoreName);
 
                     // clear all items in your store
                     store.clear();
@@ -67,10 +64,10 @@ function saveRecord(record) {
     const db = request.result;
 
     // create a transaction on the pending db with readwrite access
-    const transaction = db.transaction([pendingObjectStoreName], `readwrite`);
+    const transaction = db.transaction([ObjectStoreName], `readwrite`);
 
     // access your pending object store
-    const store = transaction.objectStore(pendingObjectStoreName);
+    const store = transaction.objectStore(ObjectStoreName);
 
     // add record to your store with add method.
     store.add(record);

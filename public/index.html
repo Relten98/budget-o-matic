@@ -21,36 +21,51 @@
 
 <body>
     <!--Nav bar on top as a header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand">
+            <br>
+            <h1 class="navbar-brand">
                 BUDGET-O-Matic
-            </a>
+            </h1>
+            <br>
         </div>
     </nav>
 
     <!-- Main Body-->
     <div class="wrapper">
         <div class="jumbotron">
+            <h3 class="display-4">$<span id="total">0</span></h3>
+            <p class="lead">Current Balance</p>
+            <canvas id="my-chart"></canvas>
             <div class="container">
-                <h1 class="display-4">$<span id="total">0</span></h1>
-                <p class="lead">My Current Balance</p>
-                <p>
-                    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample"
-                        aria-expanded="false" aria-controls="collapseExample">
-                        Manage my Budget
-                    </button>
-                </p>
+                <br>
             </div>
-        </div>
-        <div class="collapse" id="collapseExample">
+            <br>
 
-
+            <!-- main information goes here. -->
             <div class="row">
+                <!-- Shows transasction information. -->
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-
+                            <h5>Previous Transactions</h5>
+                            <br>
+                            <div class="transactions">
+                                <table>
+                                    <thead>
+                                        <th>Transaction</th>
+                                        <th>Amount</th>
+                                    </thead>
+                                    <tbody id="tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Transaction input -->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
                             <form>
                                 <label for="t-name">Transaction Name:</label>
                                 <input type="text" id="t-name" placeholder="Name" />
@@ -72,29 +87,10 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="transactions">
-                                <table>
-                                    <thead>
-                                        <th>Transaction</th>
-                                        <th>Amount</th>
-                                    </thead>
-                                    <tbody id="tbody"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <canvas id="my-chart"></canvas>
-
-
         </div>
+
         <!-- jQuery CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 

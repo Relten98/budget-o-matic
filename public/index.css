@@ -1,4 +1,4 @@
-colorstorage {
+.colorstorage {
     color: #E6EDE6;
     color: #F1AF48;
     color: #8D8D95;
@@ -12,8 +12,15 @@ nav {
     color: #E6EDE6;
 }
 
-html {
+.navbar-brand {
+    text-align: center;
+    margin-left: 35px;
+}
+
+html, body, .wrapper {
     background-color: #8D8D95;
+    background: #8D8D95;
+    width: auto;
 }
 
 *, *::before, *::after {
@@ -24,6 +31,11 @@ body {
     font-size: 16px;
     font-family: Arial;
     background-color: #f7fafc;
+}
+
+.t-name {
+    color: black;
+    background: #E6EDE6;
 }
 
 button, input {
