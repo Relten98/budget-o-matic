@@ -17,9 +17,8 @@ request.onerror = event => console.error(event);
 
 function checkDatabase() {
     const db = request.result;
-    let transaction = db.transaction([ObjectStoreName], `readwrite`);
     let storage = transaction.objectStore(ObjectStoreName);
-
+    let transaction = db.transaction([ObjectStoreName], `readwrite`);
     // get all records from store and set to a variable
     const getAll = storage.getAll();
 
@@ -36,12 +35,8 @@ function checkDatabase() {
                 .then(response => response.json())
                 .then(() => {
                     // if successful, open a transaction on your pending db
-                    transaction = db.transaction([ObjectStoreName], `readwrite`);
-
-                    // access your pending object store
                     storage = transaction.objectStore(ObjectStoreName);
-
-                    // clear all items in your store
+                    transaction = db.transaction([ObjectStoreName], `readwrite`);
                     storage.clear();
                 });
         }
