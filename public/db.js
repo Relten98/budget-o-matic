@@ -64,4 +64,4 @@ function saveRecord(record) {
 }
 
 // listens for the app coming back online
-window.addEventListener(`online`, checkDB);
+window.addEventListener(`online`, checkDatabase);
