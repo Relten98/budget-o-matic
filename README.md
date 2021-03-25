@@ -1,7 +1,6 @@
 
   <h1 align="center">Budget-o-matic</h1>
   <br />
-![ScreenShot](public\screenshots\dosh-buddy.png)
   <br />
 ##  Table of contents
 
@@ -26,6 +25,11 @@
   # <a name="usage"></a> Usage
    simply run the app through the provided heroku app. (...)
   
+  # Sceenshot
+  
+  ![ScreenShot](public/screenshots/dosh-buddy.png)
+  
+  
   # License
   ![badge](https://img.shields.io/badge/license-Open-red)
   <br />
@@ -33,6 +37,7 @@
   This application is covered by the Open license. 
   
   Users are (hopefully) expected to follow this lisense guidelines, or else they shalt be smitten with the wrath of my dissapointment.
+
 
   # <a name="contributors"></a> Contributors
    None
