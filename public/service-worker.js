@@ -1,13 +1,11 @@
-console.log("Service worker has been located.");
-
 // Caches files
 const FILES_TO_CACHE = [
     `/db.js`,
+    `/transaction.js`,
     `/index.html`,
     `/index.js`,
     `/index.css`,
     `/manifest.webmanifest`,
-    `/icons`
 ];
 
 // Caches
