@@ -4,9 +4,6 @@ const request = indexedDB.open(`budget`, 2);
 
 // This is what shall use to store out shiznit
 let dbObjectStoreName = `pending`;
-let localstorage = transaction.objectStore(dbObjectStoreName);
-let transaction = db.transaction([dbObjectStoreName], `readwrite`);
-
 
 // This is a request for updating information. I recall this is the one that has been giving me the most amount of grief as well.
 request.onupgradeneeded = event => {
