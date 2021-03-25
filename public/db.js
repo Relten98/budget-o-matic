@@ -67,4 +67,4 @@ request.onsuccess = event => {
 };
 
 // listens for the app coming back online
-window.addEventListener(`online`, checkDatabase);
+window.addEventListener(`online`, checkDB);
