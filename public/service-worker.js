@@ -1,17 +1,18 @@
-// Caches files
+
+console.log('service-worker.js file located');
+
+// Files to cache
 const FILES_TO_CACHE = [
     `/db.js`,
     `/index.html`,
     `/index.js`,
     `/index.css`,
     `/manifest.webmanifest`,
-    `/img/icons/money.png`
 ];
 
-const STATIC_CACHE = `static-cache`;
+const STATIC_CACHE = `static-cache-v1`;
 const RUNTIME_CACHE = `runtime-cache`;
 
-// Event listener to install
 self.addEventListener(`install`, event => {
     event.waitUntil(
         caches
@@ -21,25 +22,24 @@ self.addEventListener(`install`, event => {
     );
 });
 
-    self.addEventListener(`activate`, event => {
-        const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
-        event.waitUntil(
-            caches
-                .keys()
-                .then(cacheNames =>
-                    // return array of cache names that are old to delete
-                    cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
+self.addEventListener(`activate`, event => {
+    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+    event.waitUntil(
+        caches
+            .keys()
+            .then(cacheNames =>
+                // return array of cache names that are old to delete
+                cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
+            )
+            .then(cachesToDelete =>
+                Promise.all(
+                    cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
                 )
-                .then(cachesToDelete =>
-                    Promise.all(
-                        cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
-                    )
-                )
-                .then(() => self.clients.claim())
-        );
-    });
+            )
+            .then(() => self.clients.claim())
+    );
+});
 
-    
 self.addEventListener(`fetch`, event => {
     if (
         event.request.method !== `GET` ||

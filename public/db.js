@@ -1,43 +1,28 @@
-
 // Create a new db request for a "budget" database.
 const request = indexedDB.open(`budget`, 2)
 const transaction = require(`./models/transaction.js`);
 
 
 // This is what shall use to store out shiznit
-let dbObjectStoreName = `pending`;
+const ObjectStoreName = `pending`;
 
 // This is a request for updating information. I recall this is the one that has been giving me the most amount of grief as well.
 request.onupgradeneeded = event => {
     const db = request.result;
-    if (!db.dbObjectStoreName.contains(dbObjectStoreName)) {
-        db.createObjectStore(dbObjectStoreName, { autoIncrement: true });
+    if (!db.objectStoreNames.contains(ObjectStoreName)) {
+        db.createObjectStore(ObjectStoreName, { autoIncrement: true });
     }
 };
 
 // ERRORS
 request.onerror = event => console.error(event);
 
-// Saves records
-function saveRecord(record) {
+function checkDatabase() {
     const db = request.result;
-
-    // Storage vars
-    let localstorage = transaction.objectStore(dbObjectStoreName);
-    let transaction = db.transaction([dbObjectStoreName], `readwrite`);
-
-    // add record to your store with add method.
-    localstorage.add(record);
-}
-
-function checkDB() {
-    const db = request.result;
-
-    // Storage vars
-    let localstorage = transaction.objectStore(dbObjectStoreName);
-    let transaction = db.transaction([dbObjectStoreName], `readwrite`);
+    let storage = transaction.objectStore(ObjectStoreName);
+    let transaction = db.transaction([ObjectStoreName], `readwrite`);
     // get all records from store and set to a variable
-    const getAll = localstorage.getAll();
+    const getAll = storage.getAll();
 
     getAll.onsuccess = () => {
         if (getAll.result.length > 0) {
@@ -52,9 +37,9 @@ function checkDB() {
                 .then(response => response.json())
                 .then(() => {
                     // if successful, open a transaction on your pending db
-                   let localstorage = transaction.objectStore(dbObjectStoreName);
-                   let transaction = db.transaction([dbObjectStoreName], `readwrite`);
-                    localstorage.clear();
+                    storage = transaction.objectStore(ObjectStoreName);
+                    transaction = db.transaction([ObjectStoreName], `readwrite`);
+                    storage.clear();
                 });
         }
     };
@@ -64,9 +49,19 @@ function checkDB() {
 request.onsuccess = event => {
     // Will read from the DB if the website is not online, like a gigabrain should.
     if (navigator.onLine) {
-        checkDB();
+        checkDatabase();
     }
 };
+
+// Saves records
+function saveRecord(record) {
+    const db = request.result;
+    const storage = transaction.objectStore(ObjectStoreName);
+    const transaction = db.transaction([ObjectStoreName], `readwrite`);
+
+    // add record to your store with add method.
+    storage.add(record);
+}
 
 // listens for the app coming back online
 window.addEventListener(`online`, checkDB);
