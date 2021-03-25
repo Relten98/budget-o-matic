@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <title>Budget Tracker</title>
+  <title>Budget-o-matic</title>
 </head>
 <body>
     <!-- Main Body-->
@@ -19,54 +19,49 @@
             <h3 class="display-4">$<span id="total">0</span></h3>
             <p class="lead">Current Balance</p>
             <canvas id="my-chart"></canvas>
-            <div class="container">
-                <br>
-            </div>
-            <br>
 
-            <!-- main information goes here. -->
-            <div class="row">
-                <!-- Shows transasction information. -->
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>Previous Transactions</h5>
-                            <br>
-                            <div class="transactions">
-                                <table>
-                                    <thead>
-                                        <th>Transaction</th>
-                                        <th>Amount</th>
-                                    </thead>
-                                    <tbody id="tbody"></tbody>
-                                </table>
-                            </div>
+        </div>
+        <!-- main information goes here. -->
+        <div class="row">
+            <!-- Shows transasction information. -->
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Previous Transactions</h5>
+                        <br>
+                        <div class="transactions">
+                            <table>
+                                <thead>
+                                    <th>Transaction</th>
+                                    <th>Amount</th>
+                                </thead>
+                                <tbody id="tbody"></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <!-- Transaction input -->
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-                                <label for="t-name">Transaction Name:</label>
-                                <input type="text" id="t-name" placeholder="Name" />
-                                <br><br>
+            </div>
+            <!-- Transaction input -->
+            <div class="col-sm-7">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <label for="t-name">Transaction Name:</label>
+                            <input type="text" id="t-name" placeholder="Name" />
+                            <br>
+                            <label for="t-amount">Transaction Amount:</label>
+                            <input type="number" min="0" id="t-amount" placeholder="Amount" />
 
-                                <label for="t-amount">Transaction Amount:</label>
-                                <input type="number" min="0" id="t-amount" placeholder="Amount" />
-
-                                <div class="transaction-buttons">
-                                    <button class="btn" type="button" id="add-btn"><i class="fa fa-plus"></i>
-                                        Add
-                                        Funds</button>
-                                    <button class="btn" type="button" id="sub-btn">
-                                        <i class="fa fa-minus"></i> Subtract Funds
-                                    </button>
-                                </div>
-                                <p role="alert" class="error"></p>
-                            </form>
-                        </div>
+                            <div class="transaction-buttons">
+                                <button class="btn" type="button" id="add-btn"><i class="fa fa-plus"></i>
+                                    Add
+                                    Funds</button>
+                                <button class="btn" type="button" id="sub-btn">
+                                    <i class="fa fa-minus"></i> Subtract Funds
+                                </button>
+                            </div>
+                            <p role="alert" class="error"></p>
+                        </form>
                     </div>
                 </div>
             </div>
