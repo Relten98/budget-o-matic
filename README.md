@@ -1,7 +1,8 @@
 
   <h1 align="center">Budget-o-matic</h1>
   <br />
-
+![ScreenShot](public\screenshots\dosh-buddy.png)
+  <br />
 ##  Table of contents
 
 [Description / Features](#description)
