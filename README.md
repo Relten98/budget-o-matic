@@ -1,5 +1,5 @@
 
-  <h1 align="center">Budget-o-matic</h1>
+  <h1 align="center">Dosh-Buddy</h1>
   <br>
 
   ![ScreenShot](public/screenshots/dosh-buddy.png)
