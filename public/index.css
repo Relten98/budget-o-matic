@@ -4,20 +4,27 @@
     color: #8D8D95;
     color: #6C7685;
     color: #221945;
+
+    /* Fonts */
+    font-family: 'Cinzel Decorative', cursive;
+font-family: 'Raleway', sans-serif;
+
 }
 
 html {
-    height: 100%;
 }
 body {
+    font-family: 'Raleway', sans-serif;
     height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
 }
 
-.card-body {
-    background: transparent;
+#title {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #E6EDE6;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .navbar-brand {
@@ -28,10 +35,45 @@ body {
     background-color: transparent;
 }
 
+/* For the background */
 html  {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-image: linear-gradient(to top left,#a7afbb, #2a446b );
     width: auto;
     height: 100%;
+}
+
+/* I know this is using bootstrap, but I can't help it. */
+.display-4 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #221945;
+    font-weight: bold;
+}
+
+td {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+tr {
+    font-weight: bold;
+}
+
+.col-sm-6 {
+    font-family: 'Raleway', sans-serif;
+    background: transparent;
+}
+
+.card-body {
+        background-image: linear-gradient( #babac7, #8D8D95);
+    border-radius: 5px;
+    border-bottom: 5px,#6C7685;
+    border-top: transparent;
+}
+
+.card {
+background: transparent;
+transition: height 4s;
 }
 
 *, *::before, *::after {
@@ -92,7 +134,7 @@ table {
 }
 
 .error {
-    color: red;
+    color: #a50505;
 }
 
 .wrapper {
@@ -109,18 +151,23 @@ form {
     margin-top: 25px;
 }
 
+.bodystuff {
+        border-top: 2px, #221945;
+}
 .transactions {
+    background: #E6EDE6;
     text-align: left;
     max-height: 300px;
     overflow: auto;
     width: 90%;
+    border-top: thin, #221945;
+    border-bottom: transparent;
+    border-radius: 12px;
+    padding: 2px;
+    padding-left: 5px;
     margin: 0 auto;
 }
 
 .transaction-buttons {
     margin-top: 25px;
-}
-
-#auth-image {
-    border-radius: 50%;
 }

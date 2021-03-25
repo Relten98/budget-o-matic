@@ -8,7 +8,10 @@
     <meta name="theme-color" content="#317EFB" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+   
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Raleway:wght@300&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <!-- Added link to the jQuery Library -->
@@ -27,7 +30,7 @@
     <div class="wrapper">
 
         <br>
-        <h1>BUDGET-O-MATIC</h1>
+        <h1 id="title">BUDGET-O-MATIC</h1>
         <br>
         <div class="row">
             <!-- Shows transasction information. -->
@@ -44,7 +47,9 @@
                                     <th>Transaction</th>
                                     <th>Amount</th>
                                 </thead>
+                                <div class="bodystuff">
                                 <tbody id="tbody"></tbody>
+                            </div>
                             </table>
                         </div>
                     </div>
@@ -54,6 +59,8 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
+                        <h3 class="display-4">$<span id="total">0</span></h3>
+                        <p class="lead">My Current Balance</p>
                         <form>
                             <label for="t-name">Transaction Name:</label>
                             <input type="text" id="t-name" placeholder="Name" />
@@ -64,8 +71,7 @@
 
                             <div class="transaction-buttons">
                                 <button class="btn" type="button" id="add-btn"><i class="fa fa-plus"></i>
-                                    Add
-                                    Funds</button>
+                                    Add Funds</button>
                                 <button class="btn" type="button" id="sub-btn">
                                     <i class="fa fa-minus"></i> Subtract Funds
                                 </button>
