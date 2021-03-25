@@ -1,7 +1,12 @@
 
   <h1 align="center">Budget-o-matic</h1>
-  <br />
-  <br />
+  <br>
+
+  ![ScreenShot](public/screenshots/dosh-buddy.png)
+  
+  <br>
+
+
 ##  Table of contents
 
 [Description / Features](#description)
@@ -24,11 +29,6 @@
   
   # <a name="usage"></a> Usage
    simply run the app through the provided heroku app. (...)
-  
-  # Sceenshot
-  
-  ![ScreenShot](public/screenshots/dosh-buddy.png)
-  
   
   # License
   ![badge](https://img.shields.io/badge/license-Open-red)
