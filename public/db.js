@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-// Our storage.
-request.onsuccess = event => {
-    console.log(`Success! ${event.type}`);
-    // check if app is online before reading from db
-    if (navigator.onLine) {
-        checkDatabase();
-=======
 
 // Create a new db request for a "budget" database.
 const request = indexedDB.open(`budget`, 2);
@@ -21,7 +13,6 @@ request.onupgradeneeded = event => {
     const db = request.result;
     if (!db.dbObjectStoreName.contains(dbObjectStoreName)) {
         db.createObjectStore(dbObjectStoreName, { autoIncrement: true });
->>>>>>> parent of 55ab12a (more cleanup)
     }
 };
 
