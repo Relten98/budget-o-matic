@@ -5,15 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Shorcut image -->
     <meta name="theme-color" content="#317EFB">
     <link rel="shortcut icon" href="public/icons/icon-192x192.png" type="image/x-icon">
 
+    <!-- Stylesheet for Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Raleway:wght@300&display=swap" rel="stylesheet">
-    <!-- Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Raleway:wght@300&display=swap"
+        rel="stylesheet">
+
+    <!-- More Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,7 +26,9 @@
     <link rel="stylesheet" href="/index.css" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <title>Budget-o-matic</title>
+    <!-- Important page title -->
+    <title>Dosh-buddy</title>
+
 </head>
 
 <!-- Main Body-->
@@ -31,7 +38,8 @@
     <div class="wrapper">
 
         <br>
-        <h1 id="title">BUDGET-O-MATIC</h1>
+        <h1 id="title">Dosh-buddy</h1>
+        <h4>"Keep track of your money... the right way!"</h4>
         <br>
         <div class="row">
             <!-- Shows transasction information. -->
@@ -39,7 +47,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>Previous Transactions</h5>
-                        <canvas id="my-chart"></canvas>
+                        <canvas id="doshChart"></canvas>
 
                         <br>
                         <div class="transactions">
@@ -49,8 +57,8 @@
                                     <th>Amount</th>
                                 </thead>
                                 <div class="bodystuff">
-                                <tbody id="tbody"></tbody>
-                            </div>
+                                    <tbody id="tbody"></tbody>
+                                </div>
                             </table>
                         </div>
                     </div>
@@ -62,6 +70,7 @@
                     <div class="card-body">
                         <h3 class="display-4">$<span id="total">0</span></h3>
                         <p class="lead">My Current Balance</p>
+                        <br>
                         <form>
                             <label for="t-name">Transaction Name:</label>
                             <input type="text" id="t-name" placeholder="Name" />
@@ -76,6 +85,7 @@
                                 <button class="btn" type="button" id="sub-btn">
                                     <i class="fa fa-minus"></i> Subtract
                                 </button>
+                                <br>
                             </div>
                             <p role="alert" class="error"></p>
                         </form>

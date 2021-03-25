@@ -1,6 +1,22 @@
+// Introductory dependancies, transactions is defined as an open array for storage.
 let transactions = [];
-let myChart;
 
+// chartstuff
+let doshChart;
+
+// Button events
+document.querySelector(`#add-btn`).addEventListener(`click`, event => {
+    event.preventDefault();
+    sendTransaction(true);
+});
+
+document.querySelector(`#sub-btn`).addEventListener(`click`, event => {
+    event.preventDefault();
+    sendTransaction(false);
+});
+
+
+// Chart stuff
 function showChart() {
     $('.collapse').collapse()
 }
@@ -50,14 +66,15 @@ function populateChart() {
         return sum;
     });
 
-    // remove old chart if it exists
-    if (myChart) {
-        myChart.destroy();
+    // Remove old chart if it exists
+    if (doshChart) {
+        // NUUU NOT THE DOSH
+        doshChart.destroy();
     }
 
-    const ctx = document.getElementById(`my-chart`).getContext(`2d`);
+    const ctx = document.getElementById(`doshChart`).getContext(`2d`);
 
-    myChart = new Chart(ctx, {
+    doshChart = new Chart(ctx, {
         type: `line`,
         data: {
             labels,
@@ -65,7 +82,7 @@ function populateChart() {
                 {
                     label: `Total Over Time`,
                     fill: true,
-                    backgroundColor: `#5bc0de`,
+                    backgroundColor: `#F1AF48`,
                     data
                 }
             ]
@@ -148,13 +165,3 @@ function sendTransaction(isAdding) {
             console.error(err);
         });
 }
-
-document.querySelector(`#add-btn`).addEventListener(`click`, event => {
-    event.preventDefault();
-    sendTransaction(true);
-});
-
-document.querySelector(`#sub-btn`).addEventListener(`click`, event => {
-    event.preventDefault();
-    sendTransaction(false);
-});
