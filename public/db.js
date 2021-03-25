@@ -1,9 +1,27 @@
+<<<<<<< HEAD
 // Our storage.
 request.onsuccess = event => {
     console.log(`Success! ${event.type}`);
     // check if app is online before reading from db
     if (navigator.onLine) {
         checkDatabase();
+=======
+
+// Create a new db request for a "budget" database.
+const request = indexedDB.open(`budget`, 2);
+
+// This is what shall use to store out shiznit
+let dbObjectStoreName = `pending`;
+let localstorage = transaction.objectStore(dbObjectStoreName);
+let transaction = db.transaction([dbObjectStoreName], `readwrite`);
+
+
+// This is a request for updating information. I recall this is the one that has been giving me the most amount of grief as well.
+request.onupgradeneeded = event => {
+    const db = request.result;
+    if (!db.dbObjectStoreName.contains(dbObjectStoreName)) {
+        db.createObjectStore(dbObjectStoreName, { autoIncrement: true });
+>>>>>>> parent of 55ab12a (more cleanup)
     }
 };
 
