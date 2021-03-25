@@ -1,6 +1,8 @@
 
 // Create a new db request for a "budget" database.
-const request = indexedDB.open(`budget`, 2);
+const request = indexedDB.open(`budget`, 2)
+const transaction = require(`./models/transaction.js`);
+
 
 // This is what shall use to store out shiznit
 let dbObjectStoreName = `pending`;

@@ -22,21 +22,15 @@
 <body>
     <!-- Main Body-->
     <div class="wrapper">
-
-        <div class="jumbotron">
-            <h3 class="display-4">$<span id="total">0</span></h3>
-            <p class="lead">Current Balance</p>
-            <canvas id="my-chart"></canvas>
-
-        </div>
         <!-- main information goes here. -->
-        <div class="row">
-            <!-- Shows transasction information. -->
-            <div class="col-sm-5">
-                <div class="card">
+        <div class="card">
+            <div class="row">
+                <!-- Shows transasction information. -->
+
+                <div class="col-sm-5">
                     <div class="card-body">
-                        <h5>Previous Transactions</h5>
-                        <br>
+                        <h5>Previous Spending</h5>
+                        <canvas id="my-chart"></canvas>
                         <div class="transactions">
                             <table>
                                 <thead>
@@ -48,11 +42,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Transaction input -->
-            <div class="col-sm-7">
-                <div class="card">
+                <!-- Transaction input -->
+                <div class="col-sm-7">
+
                     <div class="card-body">
+                        <p role="alert" class="error"></p>
+                        <h4 class="display-4">$<span id="total">0</span></h4>
+                        <p class="lead">Current Balance</p>
                         <form>
                             <label for="t-name">Transaction Name:</label>
                             <input type="text" id="t-name" placeholder="Name" />
@@ -68,10 +64,10 @@
                                     <i class="fa fa-minus"></i> Subtract Funds
                                 </button>
                             </div>
-                            <p role="alert" class="error"></p>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
 
