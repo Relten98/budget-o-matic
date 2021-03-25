@@ -2,8 +2,6 @@
   <h1 align="center">Budget-o-matic</h1>
   <br />
 
-  Made by Ty "Relten" Diezhandino
-
 ##  Table of contents
 
 [Description / Features](#description)

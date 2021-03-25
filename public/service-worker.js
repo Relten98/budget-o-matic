@@ -7,11 +7,14 @@ const FILES_TO_CACHE = [
     `/index.js`,
     `/index.css`,
     `/manifest.webmanifest`,
-    `/img/icons/money.png`
+    `/icons`
 ];
 
-const STATIC_CACHE = `static-cache-v1`;
-const RUNTIME_CACHE = `runtime-cache`;
+// Caches
+let RUNTIME_CACHE = `runtime`;
+
+let STATIC_CACHE = `static`;
+
 
 self.addEventListener(`install`, event => {
     event.waitUntil(
@@ -19,24 +22,6 @@ self.addEventListener(`install`, event => {
             .open(STATIC_CACHE)
             .then(cache => cache.addAll(FILES_TO_CACHE))
             .then(() => self.skipWaiting())
-    );
-});
-
-self.addEventListener(`activate`, event => {
-    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
-    event.waitUntil(
-        caches
-            .keys()
-            .then(cacheNames =>
-                // return array of cache names that are old to delete
-                cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
-            )
-            .then(cachesToDelete =>
-                Promise.all(
-                    cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
-                )
-            )
-            .then(() => self.clients.claim())
     );
 });
 
@@ -77,5 +62,22 @@ self.addEventListener(`fetch`, event => {
                     )
                 );
         })
+    );
+});
+
+self.addEventListener(`activate`, event => {
+    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+    event.waitUntil(
+        caches
+            .keys()
+            .then(cacheNames =>
+                cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
+            )
+            .then(cachesToDelete =>
+                Promise.all(
+                    cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
+                )
+            )
+            .then(() => self.clients.claim())
     );
 });
