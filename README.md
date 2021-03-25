@@ -25,7 +25,8 @@
    Tracks the user's budget, both online, and offline.
 
   # <a name="installation"></a> Installation
-   Simply download the zip, or simply run the app through the provided heroku app. (...)
+   Simply download the zip, or simply run the app through the provided heroku app.
+(https://budget-o-matic.herokuapp.com/)
   
   # <a name="usage"></a> Usage
    simply run the app through the provided heroku app. (...)
@@ -36,19 +37,18 @@
 
   This application is covered by the Open license. 
   
-  Users are (hopefully) expected to follow this lisense guidelines, or else they shalt be smitten with the wrath of my dissapointment.
-
+  Users are (hopefully) expected to follow the guidelines, or else they shalt be smitten with the wrath of my dissapointment, since this application is not for profit at all.
+If you are going to violate the lisence, I will again, be VERY dissapointed. >:(
 
   # <a name="contributors"></a> Contributors
-   None
+   Me, Myself, and I.
   
   # <a name="tests"></a> Tests
-  No tests
+  No tests used. Need to really get to using them though.
   <br />
   
   # <a name="contact"></a> Contact information
   GitHub: [relten98](https://github.com/relten98)
   <br />
   <br/>
-  Have any questions? feel free to email at: diezhandinoty@gmail.com
-      
+  Have any questions, comments, or feel like sending me some hate mail? feel free to email at: diezhandinoty@gmail.com
