@@ -94,7 +94,7 @@ function sendTransaction(isAdding) {
     errorEl.textContent = "";
   }
 
-  // create record
+  // Create a record
   let transaction = {
     name: nameEl.value,
     value: amountEl.value,
@@ -146,10 +146,10 @@ function sendTransaction(isAdding) {
   });
 }
 
-document.querySelector("#add-btn").onclick = function() {
-  sendTransaction(true);
-};
-
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
+document.querySelector("#add-btn").onclick = function() {
+    sendTransaction(true);
+  };
