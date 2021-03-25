@@ -149,12 +149,13 @@ function sendTransaction(isAdding) {
         });
 }
 
-document.querySelector(`#add-btn`).addEventListener(`click`, event => {
-    event.preventDefault();
-    sendTransaction(true);
-});
-
+// btns for adding and subtracting funds.
 document.querySelector(`#sub-btn`).addEventListener(`click`, event => {
     event.preventDefault();
     sendTransaction(false);
+});
+
+document.querySelector(`#add-btn`).addEventListener(`click`, event => {
+    event.preventDefault();
+    sendTransaction(true);
 });
