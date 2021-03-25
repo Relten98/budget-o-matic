@@ -13,35 +13,84 @@
   <title>Budget Tracker</title>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="total">
-      <div class="total">Your total is: $<span id="total">0</span></div>
-    </div>
+    <!-- Main Body-->
+    <div class="wrapper">
+        <div class="jumbotron">
+            <h3 class="display-4">$<span id="total">0</span></h3>
+            <p class="lead">Current Balance</p>
+            <canvas id="my-chart"></canvas>
+            <div class="container">
+                <br>
+            </div>
+            <br>
 
-    <div class="form">
-      <input type="text" id="t-name" placeholder="Name of transaction" />
-      <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
-      <button id="add-btn"><i class="fa fa-plus buttons"></i> Add Funds</button>
-      <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
-      <p class="error"></p>
-    </div>
+            <!-- main information goes here. -->
+            <div class="row">
+                <!-- Shows transasction information. -->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Previous Transactions</h5>
+                            <br>
+                            <div class="transactions">
+                                <table>
+                                    <thead>
+                                        <th>Transaction</th>
+                                        <th>Amount</th>
+                                    </thead>
+                                    <tbody id="tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Transaction input -->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <label for="t-name">Transaction Name:</label>
+                                <input type="text" id="t-name" placeholder="Name" />
+                                <br><br>
 
-    <div class="transactions">
-      <table>
-        <thead>
-          <th>Transaction</th>
-          <th>Amount</th>
-        </thead>
-        <tbody id="tbody">
-          
-        </tbody>
-      </table>
-    </div>
-    
-    <canvas id="myChart"></canvas>
-  </div>
+                                <label for="t-amount">Transaction Amount:</label>
+                                <input type="number" min="0" id="t-amount" placeholder="Amount" />
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="index.js"></script>
+                                <div class="transaction-buttons">
+                                    <button class="btn" type="button" id="add-btn"><i class="fa fa-plus"></i>
+                                        Add
+                                        Funds</button>
+                                    <button class="btn" type="button" id="sub-btn">
+                                        <i class="fa fa-minus"></i> Subtract Funds
+                                    </button>
+                                </div>
+                                <p role="alert" class="error"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+        <!-- Bootstrap JavaScript CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="/db.js"></script>
+        <script src="/index.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () =>
+                    navigator.serviceWorker
+                        .register('service-worker.js')
+                        .then(reg => console.log('We found your service worker file!', reg))
+                );
+            }
+        </script>
 </body>
 </html>

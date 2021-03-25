@@ -13,14 +13,12 @@ function checkDatabase() {
 
     const db = request.result;
 
-    // open a transaction on your pending db
     let transaction = db.transaction([pendingObjectStoreName], `readwrite`);
 
-    // access your pending object store
-    let store = transaction.objectStore(pendingObjectStoreName);
+    let storage = transaction.objectStore(pendingObjectStoreName);
 
     // get all records from store and set to a variable
-    const getAll = store.getAll();
+    const getAll = storage.getAll();
 
     getAll.onsuccess = () => {
         if (getAll.result.length > 0) {
@@ -39,28 +37,25 @@ function checkDatabase() {
                     transaction = db.transaction([pendingObjectStoreName], `readwrite`);
 
                     // access your pending object store
-                    store = transaction.objectStore(pendingObjectStoreName);
+                    storage = transaction.objectStore(pendingObjectStoreName);
 
                     // clear all items in your store
-                    store.clear();
+                    storage.clear();
                 }
                 );
         }
     }
 };
 
-// eslint-disable-next-line no-unused-vars
 function saveRecord(record) {
     const db = request.result;
 
-    // create a transaction on the pending db with readwrite access
+    const storage = transaction.objectStore(pendingObjectStoreName);
+
+
     const transaction = db.transaction([pendingObjectStoreName], `readwrite`);
-
-    // access your pending object store
-    const store = transaction.objectStore(pendingObjectStoreName);
-
     // add record to your store with add method.
-    store.add(record);
+    storage.add(record);
 };
 
 // listen for app coming back online

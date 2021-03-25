@@ -17,44 +17,13 @@ nav {
 }
 
 html, body, .wrapper {
-    background-image: linear-gradient(to top left,#a7afbb, #2a446b );
+    background-color: #8D8D95;
+    background: #8D8D95;
     width: auto;
-}
-
-br {
-    margin-top: 2px;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-.jumbotron {
-    margin: auto;
-    opacity: 0.5;
-}
-
-.transactions {
-    margin-top: 25%;
-    margin-bottom: auto;
-}
-
-.card {
-    background: transparent;
-    width: auto;
-    height: 100%;
-}
-
-.card-body {
-    border: thin, transparent;
-    border-radius: 5px;
-    background-image: linear-gradient(#bdcce2, #a7afbb );
-    border-top: transparent;
-    border-bottom: #2a446b;
-}
-
-.col-sm-6 {
-    background-color: transparent;
 }
 
 body {
