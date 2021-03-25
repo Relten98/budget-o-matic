@@ -1,11 +1,20 @@
 // Caches files
 const FILES_TO_CACHE = [
-    `/db.js`,
-    `/transaction.js`,
+    // The main index
     `/index.html`,
     `/index.js`,
     `/index.css`,
+
+    // The db for storage
+    `/db.js`,
+    
+    // The model for the db
+    `/transaction.js`,
+
+    // Manifest shiznit
     `/manifest.webmanifest`,
+    `/icons/icon-192x192.png`,
+    `/icons/icon-512x512.png`
 ];
 
 // Caches
