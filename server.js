@@ -2,8 +2,13 @@
 const express = require(`express`);
 const mongoose = require(`mongoose`);
 
+<<<<<<< HEAD
 // Absolutely critical
 const birds = process.env.PORT || 8080;
+=======
+const PORT = process.env.PORT || 1509;
+
+>>>>>>> parent of d9e71cc (updated)
 
 // Port information
 const PORT = birds

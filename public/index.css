@@ -7,7 +7,6 @@
 }
 
 nav {
-    text-align: center;
     background-color: #221945;
     color: #E6EDE6;
 }
@@ -96,9 +95,8 @@ button {
 background: #F1AF48;
 color: #221945;
 }
-
 button:hover {
-background: #b98025;
+background: #d39126;
 
 }
 
