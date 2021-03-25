@@ -2,7 +2,7 @@
 const express = require(`express`);
 const mongoose = require(`mongoose`);
 
-const PORT = process.env.PORT || 1509;
+const birds = process.env.PORT || 8080;
 
 
 // Port information
