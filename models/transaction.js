@@ -1,10 +1,8 @@
-// Our dependancies
 const mongoose = require("mongoose");
 
 // The schema
 const Schema = mongoose.Schema;
 
-// Transaction schema
 const transactionSchema = new Schema(
   {
     name: {
