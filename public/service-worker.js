@@ -21,6 +21,25 @@ self.addEventListener(`install`, event => {
     );
 });
 
+    self.addEventListener(`activate`, event => {
+        const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+        event.waitUntil(
+            caches
+                .keys()
+                .then(cacheNames =>
+                    // return array of cache names that are old to delete
+                    cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
+                )
+                .then(cachesToDelete =>
+                    Promise.all(
+                        cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
+                    )
+                )
+                .then(() => self.clients.claim())
+        );
+    });
+
+    
 self.addEventListener(`fetch`, event => {
     if (
         event.request.method !== `GET` ||
@@ -43,24 +62,6 @@ self.addEventListener(`fetch`, event => {
         );
         return;
     }
-
-    self.addEventListener(`activate`, event => {
-        const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
-        event.waitUntil(
-            caches
-                .keys()
-                .then(cacheNames =>
-                    // return array of cache names that are old to delete
-                    cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
-                )
-                .then(cachesToDelete =>
-                    Promise.all(
-                        cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
-                    )
-                )
-                .then(() => self.clients.claim())
-        );
-    });
 
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {
