@@ -6,20 +6,32 @@
     color: #221945;
 }
 
-nav {
-    background-color: #221945;
-    color: #E6EDE6;
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.card-body {
+    background: transparent;
 }
 
 .navbar-brand {
     text-align: center;
     margin-left: 35px;
 }
+.wrapper, body {
+    background-color: transparent;
+}
 
-html, body, .wrapper {
-    background-color: #8D8D95;
-    background: #8D8D95;
+html  {
+    background-image: linear-gradient(to top left,#a7afbb, #2a446b );
     width: auto;
+    height: 100%;
 }
 
 *, *::before, *::after {
@@ -29,7 +41,7 @@ html, body, .wrapper {
 body {
     font-size: 16px;
     font-family: Arial;
-    background-color: #f7fafc;
+
 }
 
 .t-name {
@@ -64,11 +76,11 @@ button {
 background: #F1AF48;
 color: #221945;
 }
+
 button:hover {
 background: #d39126;
 
 }
-
 
 button:active {
     box-shadow: none;

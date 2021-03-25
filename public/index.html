@@ -23,22 +23,37 @@
 <!-- Main Body-->
 
 <body>
-
+    <!-- Main Body-->
     <div class="wrapper">
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-4">$<span id="total">0</span></h1>
-                <p class="lead">My Current Balance</p>
-            </div>
-        </div>
 
-
-
+        <br>
+        <h1>BUDGET-O-MATIC</h1>
+        <br>
         <div class="row">
+            <!-- Shows transasction information. -->
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
+                        <h5>Previous Transactions</h5>
+                        <canvas id="my-chart"></canvas>
 
+                        <br>
+                        <div class="transactions">
+                            <table>
+                                <thead>
+                                    <th>Transaction</th>
+                                    <th>Amount</th>
+                                </thead>
+                                <tbody id="tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Transaction input -->
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
                         <form>
                             <label for="t-name">Transaction Name:</label>
                             <input type="text" id="t-name" placeholder="Name" />
@@ -60,45 +75,30 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-
-                        <div class="transactions">
-                            <table>
-                                <thead>
-                                    <th>Transaction</th>
-                                    <th>Amount</th>
-                                </thead>
-                                <tbody id="tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <canvas id="my-chart"></canvas>
-        <!-- jQuery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </div>
 
 
-        <!-- Bootstrap JavaScript CDN -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <canvas id="my-chart"></canvas>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script src="/db.js"></script>
-        <script src="/index.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () =>
-                    navigator.serviceWorker
-                        .register('service-worker.js')
-                        .then(reg => console.log('We found your service worker file!', reg))
-                );
-            }
-        </script>
+
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/db.js"></script>
+    <script src="/index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () =>
+                navigator.serviceWorker
+                    .register('service-worker.js')
+                    .then(reg => console.log('We found your service worker file!', reg))
+            );
+        }
+    </script>
 </body>
 
 </html>
